@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QUADRATICS</title>
+<style>
+  body {
+    font-family: 'Consolas', 'Courier New', monospace;
+    background-color: #202020;
+    color: #33ff33; /* Classic terminal green on dark background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+    padding: 10px; /* Add some padding for small screens */
+  }
+  #typing-text {
+    white-space: pre-wrap; /* Allows for whitespace and new lines */
+    background: transparent;
+    border: none;
+    max-width: 80%;
+    margin: 20px;
+    overflow-wrap: break-word; /* Prevents long text from overflowing */
+  }
+  #typing-text .bold {
+    font-weight: bold;
+  }
+  .gif-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto; /* Center the GIF container */
+  }
+  img.gif {
+    max-width: 80%; /* Limit the width to fit mobile screens */
+    height: auto;
+    margin-bottom: 20px; /* Add some space between the GIF and the text */
+  }
+  @media (max-width: 768px) {
+    #typing-text {
+      font-size: 14px; /* Smaller text for smaller screens */
+    }
+  }
+</style>
+</head>
+<body>
+<div class="gif-container">
+  <img class="gif" src="ezgif-5-fcd51a2524.gif" alt="QUADRATICS Animation">
+</div>
+<div id="typing-text"></div>
+<script>
+const titleAndHeaders = [
+  "QUADRATICS",
+  "Simplify to Amplify",
+  "Art in Every Pixel",
+  "The Essence",
+  "The Vision",
+  "Community Code",
+  "Build on Bitcoin",
+  "Power in Numbers",
+  "Back to Bitcoin Basics",
+  "On Bitcoin, Through PIPE",
+  "401 Promise",
+  "Join the Grid",
+  "Bit by Bit",
+  "Community Command",
+  "The Square Root",
+  "Keep It Squared",
+  "Pixel Power"
+];
+
+const text = `QUADRATICS
+Simplify to Amplify
+
+// Art in Every Pixel
+"The Essence": Minimalistic. Geometric.
+Each QUADRATIC is a pixel with purpose on the Bitcoin network.
+
+"The Vision": Artistic simplicity meets Bitcoin innovation.
+
+// Community Code
+"Build on Bitcoin": QUADRATICS isn't just about ownership,
+it's about contribution to Bitcoin's ecosystem.
+
+"Power in Numbers": Inspired by quadratic funding,
+our community's voice will shape our collective future.
+
+// Back to Bitcoin Basics
+"On Bitcoin, Through PIPE": Leveraging PIPE protocol for
+straightforward NFT transactions.
+
+"401 Promise": Art, unity, build, growth. That's QUADRATICS.
+
+// Join the Grid
+"Bit by Bit": Securing a QUADRATIC strengthens the Bitcoin community.
+
+"Community Command": A collective that values each square in the grid.
+
+// The Square Root
+"Keep It Squared": Complexity is overrated.
+Look for the beauty of the basics.
+
+"Pixel Power": Every bit is a building block.`;
+
+let index = 0;
+const typingTextElement = document.getElementById('typing-text');
+const totalTypingDuration = 4000; // Total time to display all text in milliseconds
+const totalCharacters = text.length;
+const timeDelay = totalTypingDuration / totalCharacters; // Calculate the time delay for each character
+
+function type() {
+  if (index < text.length) {
+    let currentString = text.slice(0, index);
+    let lastWord = currentString.split(/\s+/).pop();
+    if (titleAndHeaders.includes(lastWord)) {
+      // Remove the last word, which is a title or header
+      typingTextElement.innerHTML = currentString.slice(0, currentString.length - lastWord.length);
+      // Add the last word wrapped in a span with class 'bold'
+      typingTextElement.innerHTML += `<span class="bold">${lastWord}</span>`;
+    } else {
+      typingTextElement.innerHTML = currentString;
+    }
+    index++;
+    setTimeout(type, timeDelay);
+  }
+}
+
+// Start the typing effect
+type();
+</script>
+</body>
+</html>
