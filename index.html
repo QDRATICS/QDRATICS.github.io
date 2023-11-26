@@ -40,7 +40,8 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 100vh;
+    height: auto; /* New line */
+    min-height: 100vh;
     margin: 0;
     text-align: center;
     padding: 10px; /* Add some padding for small screens */
@@ -52,11 +53,15 @@
     max-width: 80%;
     margin: 20px;
     overflow-wrap: break-word; /* Prevents long text from overflowing */
+    padding-top: 50px
   }
   #typing-text .bold {
     font-weight: bold;
   }
   .gif-container {
+    position: sticky; /* New line */
+    top: 0; /* New line */
+    z-index: 10; /* New line */
     display: flex;
     justify-content: center;
     align-items: center;
