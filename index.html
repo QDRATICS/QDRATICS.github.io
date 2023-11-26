@@ -36,7 +36,7 @@ html, body {
   height: 100%;
   margin: 0;
   overflow: hidden;
-  background: black;
+  background: #202020;
   font-family: 'Courier New', monospace;
 }
 #matrixBackground {
@@ -64,9 +64,27 @@ html, body {
     word-wrap: break-word; /* Ensure long words do not overflow */
 }
 
-@media (max-width: 1768px) {
-    font-size: 14px; /* Smaller font size for mobile */
-    line-height: 1.4; /* Adjust line height for better readability */ 
+@media (max-width: 768px) {
+    #interactiveGif {
+        position: absolute;
+        top: 10%; /* Position GIF higher */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60%; /* Adjust the width of the GIF */
+        z-index: 3;
+    }
+
+    #textContainer {
+        position: absolute;
+        top: 55%; /* Lower the text to create space between GIF and text */
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 14px; /* Smaller font size for mobile */
+        line-height: 1.4; /* Adjust line height */
+        max-width: 90%; /* Limit the maximum width */
+        word-wrap: break-word;
+        white-space: normal;
+        z-index: 2;
     }
 }
 #interactiveGif {
