@@ -36,7 +36,7 @@ html, body {
   height: 100%;
   margin: 0;
   overflow: hidden;
-  background: 202020;
+  background: #202020;
   font-family: 'Courier New', monospace;
 }
 #matrixBackground {
@@ -64,7 +64,7 @@ html, body {
     word-wrap: break-word; /* Ensure long words do not overflow */
 }
 
-@media (max-width: 1768px) {
+@media (max-width: 768px) {
     #interactiveGif {
         position: absolute;
         top: 10%; /* Position GIF higher */
@@ -120,55 +120,7 @@ html, body {
 
 <img src="ezgif-5-fcd51a2524.gif" id="interactiveGif" alt="Animated GIF">
 
-<script>
-// Matrix effect JavaScript
-document.addEventListener('DOMContentLoaded', (event) => {
-    const canvas = document.getElementById('matrixBackground');
-    const context = canvas.getContext('2d');
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    const katakana = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}';
-    const fontSize = 16;
-    const columns = canvas.width / fontSize;
-    const rainDrops = [];
-
-    // Initialize the rainDrops array with a 0 for each column.
-    for (let x = 0; x < columns; x++) {
-        rainDrops[x] = 1;
-    }
-
-    // Draw the characters
-    function drawMatrix() {
-        context.fillStyle = 'rgba(0, 0, 0, 0.87)';
-        context.fillRect(0, 0, canvas.width, canvas.height);
-
-        context.fillStyle = '#0F0'; // Green text
-        context.font = fontSize + 'px monospace';
-
-        for (let i = 0; i < rainDrops.length; i++) {
-            const text = katakana.charAt(Math.floor(Math.random() * katakana.length));
-            context.fillText(text, i * fontSize, rainDrops[i] * fontSize);
-            
-            // Randomly reset the end of the column if it's at least 100px high
-            if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                rainDrops[i] = 0;
-            }
-            rainDrops[i]++;
-        }
-    }
-
-    // Loop the drawMatrix function at 30 frames per second
-    setInterval(drawMatrix, 33);
-});
-
-// Resize canvas on window resize
-window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-});
-</script>
 <script>
   // JavaScript for the typing effect with grouped paragraphs
   (function typingEffect() {
