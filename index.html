@@ -41,7 +41,7 @@
         }
     
         #banner-image {
-            max-width: 950px;
+            max-width: 875px;
             height: auto; /* Maintain aspect ratio */
         }
     
@@ -49,6 +49,7 @@
             background-color: #202020;
             border: 1px solid #ffff;
             padding: 20px;
+            text-align: center;
             margin: 20px auto;
             max-width: 800px;
             cursor: pointer; /* Indicate that box is clickable */
@@ -59,7 +60,12 @@
             color: #ffff; /* Text color for headings and paragraphs */
             text-align: center;
         }
-    
+        .command-box p {
+        white-space: pre-wrap; /* Preserves white spaces and line breaks */
+        display: inline-block; /* Allows text alignment to work correctly */
+        text-align: center; /* Aligns the text to the left within the centered block */
+        width: 100%; /* Ensures the paragraph takes the full width of the command box */
+    }
         p {
             white-space: pre-wrap; /* Preserves white spaces and line breaks */
         }
