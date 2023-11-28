@@ -30,190 +30,193 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
-<style>
-/* CSS styles */
-html, body {
-  height: 100%;
-  margin: 0;
-  overflow: hidden;
-  background: #202020;
-  font-family: 'Courier New', monospace;
-}
-#matrixBackground {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  opacity: 0.3;
-}
-#textContainer {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    text-align: center;
-    font-size: 20px; /* Adjust font size if needed */
-    line-height: 1.5;
-    font-family: 'Orbitron', sans-serif;
-    white-space: normal; /* Change from nowrap to normal */
-    z-index: 2;
-    max-width: 90%; /* Limit the maximum width */
-    word-wrap: break-word; /* Ensure long words do not overflow */
+    <style>
+        body {
+            background-color: #202020;
+            color: #ffff; /* Neon green, typical of command line displays */
+            font-family: 'Orbitron', sans-serif;
+            text-align: center;
+            font-weight: normal;
+            padding: 20px;
+        }
+    
+        #banner-image {
+            width: 50%; /* Full width of the container */
+            height: auto; /* Maintain aspect ratio */
+        }
+    
+        .command-box {
+            background-color: #202020;
+            border: 1px solid #ffff;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            cursor: pointer; /* Indicate that box is clickable */
+        }
+    
+        .command-box h2, .command-box p {
+            font-weight: normal;
+            color: #ffff; /* Text color for headings and paragraphs */
+        }
+    
+        p {
+            white-space: pre-wrap; /* Preserves white spaces and line breaks */
+        }
+    
+        .gallery {
+            margin-top: 20px; /* Space above the gallery */
+            text-align: center;
+        }
+    
+        .gallery img {
+            max-width: 128px;
+            max-height: 128px;
+            cursor: pointer; /* Custom cursor for gallery images */
+            display: none; /* Hide images initially */
+        }
+    
+        .active-image {
+            display: inline-block; /* Show the active image */
+        }
+        .social-links {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    gap: 10px; /* Space between icons */
 }
 
-@media (max-width: 768px) {
-    #interactiveGif {
-        position: absolute;
-        top: 10%; /* Position GIF higher */
-        left: 50%;
-        transform: translateX(-50%);
-        width: 60%; /* Adjust the width of the GIF */
-        z-index: 3;
-    }
+.social-links a {
+    display: block;
+    cursor: pointer; /* Custom cursor for social links */
+}
 
-    #textContainer {
-        position: absolute;
-        top: 55%; /* Lower the text to create space between GIF and text */
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 14px; /* Smaller font size for mobile */
-        line-height: 1.4; /* Adjust line height */
-        max-width: 90%; /* Limit the maximum width */
-        word-wrap: break-word;
-        white-space: normal;
-        z-index: 2;
-    }
+.social-links img {
+    width: 32px;
+    height: 32px;
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
 }
-#interactiveGif {
-  position: absolute;
-  top: 10%; /* Position GIF at the top */
-  left: 50%;
-  transform: translateX(-50%);
-  cursor: pointer;
-  z-index: 1;
+
+.social-links img:hover {
+    transform: scale(1.1); /* Slightly enlarge icons on hover */
 }
-.typing-text {
-  display: block;
-  margin: 0 0 1,4px;
-  opacity: 1;
-  font-size: 200px;
-}
-.cursor {
-  display: inline-block;
-  background-color: #0F0;
-  margin-left: 5px;
-  animation: blink 1s infinite;
-}
-@keyframes blink {
-  50% { background-color: transparent; }
-}
-</style>
+
+    
+        @media (max-width: 768px) {
+            .command-box {
+                max-width: 90%;
+            }
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <img src="QUADRATICS Banner3.png" alt="Quadratics Banner" id="banner-image">
+    </header>
 
-<canvas id="matrixBackground"></canvas>
+    <main>
+        <!-- Text Boxes -->
+        <div class="command-box">
+            <h2>Art in Every Pixel</h2> 
+            <p data-text= "The Essence: Minimalistic. Geometric. Each QUADRATIC is a pixel with purpose on the Bitcoin network. 
+            The Vision: Artistic simplicity meets Bitcoin innovation."></p>
+        </div>
 
-<div id="textContainer"></div>
+        <div class="command-box">
+            <h2>Community Code</h2>
+            <p data-text= "Build on Bitcoin: QUADRATICS isn't just about ownership, it's about contribution to Bitcoin's ecosystem. 
+            Power in Numbers: Inspired by quadratic funding, our community's voice will shape our collective future."></p>
+        </div>
 
-<img src="ezgif-5-fcd51a2524.gif" id="interactiveGif" alt="Animated GIF">
+        <div class="command-box">
+            <h2>Back to Bitcoin Basics</h2>
+            <p data-text= "On Bitcoin, Through PIPE: Leveraging PIPE protocol for straightforward NFT transactions. 
+            404 Promise: Art, unity, build, growth. That's QUADRATICS."></p> 
+        </div>
 
+        <div class="command-box">
+            <h2>Join the Grid</h2>
+            <p data-text= "Bit by Bit: Securing a QUADRATIC strengthens the Bitcoin community. 
+            Community Command: A collective that values each square in the grid."></p>
+        </div>
 
-<script>
-  // JavaScript for the typing effect with grouped paragraphs
-  (function typingEffect() {
-      const paragraphs = [
-      "QUADRATICS<br>Simplify to Amplify",
-          "// Art in Every Pixel<br>\"The Essence\": Minimalistic. Geometric. Each QUADRATIC is a pixel with purpose on the Bitcoin network.<br>\"The Vision\": Artistic simplicity meets Bitcoin innovation.",
-          "// Community Code<br>\"Build on Bitcoin\": QUADRATICS isn't just about ownership, it's about contribution to Bitcoin's ecosystem.<br>\"Power in Numbers\": Inspired by quadratic funding, our community's voice will shape our collective future.",
-          "// Back to Bitcoin Basics<br>\"On Bitcoin, Through PIPE\": Leveraging PIPE protocol for straightforward NFT transactions.<br>\"404 Promise\": Art, unity, build, growth. That's QUADRATICS.",
-          "// Join the Grid<br>\"Bit by Bit\": Securing a QUADRATIC strengthens the Bitcoin community.<br>\"Community Command\": A collective that values each square in the grid.",
-          "// The Square Root<br>\"Keep It Squared\": Complexity is overrated. Look for the beauty of the basics.<br>\"Pixel Power\": Every bit is a building block."
+        <div class="command-box">
+            <h2>The Square Root</h2>
+            <p data-text= "Keep It Squared: Complexity is overrated. Look for the beauty of the basics. 
+            Pixel Power: Every bit is a building block."></p>
+        </div>
 
-      ];
+        <div class="gallery">
+            <img src="0600.png" alt="Image1" class="active-image"> 
+            <img src="0602.png" alt="Image2" style="display: none;">
+            <img src="0603.png" alt="Image3" style="display: none;">
+            <img src="0604.png" alt="Image4" style="display: none;">
+            <img src="0605.png" alt="Image5" style="display: none;">
+            <img src="0606.png" alt="Image6" style="display: none;">
+            <img src="0607.png" alt="Image7" style="display: none;">
+            <img src="0608.png" alt="Image8" style="display: none;">
+            <img src="0609.png" alt="Image9" style="display: none;">
+            <img src="0610.png" alt="Image10" style="display: none;">
+            <img src="0611.png" alt="Image11" style="display: none;">
+            <img src="0615.png" alt="Image12" style="display: none;"> 
+        </div>
+    </main>
 
-      let currentParagraph = 0;
-      let charIndex = 0;
-      let currentText = ''; // Declare currentText outside the type function
-      let typingTimeout;
+    <footer>
+        <p>© 2023 Quadratics. All rights reserved.</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Typing effect function
+            function typeEffect(element, text, speed = 20, index = 0) {
+                if (index < text.length) {
+                    element.innerText += text.charAt(index);
+                    setTimeout(() => typeEffect(element, text, speed, index + 1), speed);
+                }
+            }
+    
+            // Apply typing effect to the text in command boxes
+            const commandBoxes = document.querySelectorAll('.command-box');
+            commandBoxes.forEach(box => {
+                const textElement = box.querySelector('p');
+                const fullText = textElement.getAttribute('data-text'); // Get the text from the data-text attribute
+                textElement.innerText = ''; // Clear initial text
+    
+                box.addEventListener('click', () => {
+                    if (textElement.innerText === '') {
+                        typeEffect(textElement, fullText);
+                    }
+                });
+            });
+    
+            // Gallery Click Interaction
+        const gallery = document.querySelector('.gallery');
+        const images = gallery.querySelectorAll('img');
+        let currentImageIndex = 0;
 
-      const typingContainer = document.getElementById('textContainer');
-      const cursorSpan = document.createElement('span');
-      cursorSpan.classList.add('cursor');
-      typingContainer.appendChild(cursorSpan);
+        function showCurrentImage() {
+            images.forEach(img => { img.style.display = 'none'; });
+            images[currentImageIndex].style.display = 'inline-block';
+        }
 
-      function type() {
-          if (charIndex < paragraphs[currentParagraph].length) {
-              if (!cursorSpan.classList.contains('typing')) cursorSpan.classList.add('typing');
-              const letter = paragraphs[currentParagraph].charAt(charIndex);
-              currentText += letter;
-              typingContainer.innerHTML = currentText.replace(/\n/g, '<br>'); // Replace \n with <br>
-              charIndex++;
-              typingTimeout = setTimeout(type, 20);
-          } else {
-              cursorSpan.classList.remove('typing');
-              clearTimeout(typingTimeout);
-              setTimeout(erase, 2000); // Wait for 2 seconds before clearing
-          }
-      }
+        gallery.addEventListener('click', () => {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            showCurrentImage();
+        });
 
-      function erase() {
-          setTimeout(() => {
-              typingContainer.innerHTML = '';
-              currentText = ''; // Reset currentText when starting a new paragraph
-              currentParagraph++;
-              if (currentParagraph >= paragraphs.length) currentParagraph = 0;
-              charIndex = 0; // Reset charIndex for next paragraph
-              setTimeout(type, 1000); // Wait for 1 second before typing the next paragraph
-          }, 3000); // Wait for 2 seconds before clearing the text
-      }
-
-      setTimeout(type, 500); // Start typing the first paragraph after 500 milliseconds
-  })();
-</script>
-<script>
-    document.getElementById('interactiveGif').addEventListener('click', function(e) {
-  // Clone the GIF
-  var clone = this.cloneNode();
-  var maxTop = window.innerHeight;
-  var maxLeft = window.innerWidth;
-  var randomTop = Math.random() * maxTop;
-  var randomLeft = Math.random() * maxLeft;
-
-  // Set initial position for the clone (random position)
-  clone.style.position = 'absolute';
-  clone.style.top = randomTop + 'px'; // Start from a random vertical position
-  clone.style.left = randomLeft + 'px'; // Start from a random horizontal position
-
-  document.body.appendChild(clone);
-
-  // Animate the clone
-  var fadeIn = function() {
-    var opacity = parseFloat(clone.style.opacity) || 0;
-    opacity += 0.02; // Adjust the fading speed as needed
-    clone.style.opacity = opacity;
-    if (opacity < 1) {
-      requestAnimationFrame(fadeIn);
-    } else {
-      setTimeout(fadeOut, 2000); // Wait for 2 seconds before fading out
-    }
-  };
-
-  var fadeOut = function() {
-    var opacity = parseFloat(clone.style.opacity) || 1;
-    opacity -= 0.02; // Adjust the fading speed as needed
-    clone.style.opacity = opacity;
-    if (opacity > 0) {
-      requestAnimationFrame(fadeOut);
-    } else {
-      clone.remove();
-    }
-  };
-
-  fadeIn(); // Start the animation
-});
+        showCurrentImage(); // Initially show the first image
+    });
     </script>
+    <footer>
+
+        <div class="social-links">
+            <a href="https://discord.gg/dkzUm9jC7n" target="_blank">
+                <img src="discord32.png" alt="Discord" style="width: 32px; height: 32px;">
+            </a>
+            <a href="https://twitter.com/qdratics" target="_blank">
+                <img src="x32.png" alt="Twitter" style="width: 32px; height: 32px;">
+            </a>
+        </div>
+    </footer>
 </body>
 </html>
