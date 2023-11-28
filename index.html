@@ -57,6 +57,7 @@
         .command-box h2, .command-box p {
             font-weight: normal;
             color: #ffff; /* Text color for headings and paragraphs */
+            text-align: center;
         }
     
         p {
@@ -79,8 +80,10 @@
             display: inline-block; /* Show the active image */
         }
         .social-links {
-    position: fixed;
+    position: static;
     right: 20px;
+    margin-top: 20px;
+    justify-content: center;
     bottom: 20px;
     display: flex;
     gap: 10px; /* Space between icons */
