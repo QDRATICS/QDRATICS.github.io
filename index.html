@@ -43,6 +43,7 @@
         #banner-image {
             max-width: 875px;
             height: auto; /* Maintain aspect ratio */
+            margin: 0 auto;
         }
     
         .command-box {
@@ -116,8 +117,8 @@
 }
 
 #mosaic {
-    width: 1500px;
-    height: 500px;
+    width: 900px;
+    height: 300px;
     margin: 0 auto; /* centers the div */
     display: grid;
     cursor: pointer;
@@ -126,9 +127,9 @@
 }
 
 .mosaic-image {
-    width: 100px;
+    width: 60px;
     cursor: pointer;
-    height: 100px;
+    height: 60px;
     object-fit: cover;
     transition: transform 0.3s ease;
 }
@@ -142,6 +143,14 @@
             max-width: 100%; /* Full width on smaller screens */
             height: auto; /* Maintain aspect ratio */
         }
+        .mosaic-image {
+            max-width: 80%
+        /* Adjust image sizes or other properties for mobile screens */
+    }
+    #mosaic {
+        max-width: 80%
+        /* Adjust grid layout or other properties for mobile screens */
+    }
         }
     </style>
 </head>
@@ -151,7 +160,7 @@
     </header>
 
     <main>
-        
+        <!-- Text Boxes -->
         <div class="command-box">
             <h2>Art in Every Pixel</h2> 
             <p data-text= "The Essence: Minimalistic. Geometric. Each QUADRATIC is a pixel with purpose on the Bitcoin network.
