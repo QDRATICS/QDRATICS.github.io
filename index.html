@@ -117,26 +117,25 @@
 
 #mosaic-container {
     display: flex;
-    margin: 0 auto;
     justify-content: center;
     align-items: center;
-    width: 90vw; /* Full viewport width */
-    height: 30vw; /* Height is 33.33% of viewport width for 3:1 aspect ratio */
-    max-height: 500px; /* Maximum height */
-    overflow: hidden; /* Hide overflow */
+    max-width: 90vw; /* Max width relative to viewport width */
+    margin: auto; /* Center the container */
+    overflow: hidden;
 }
 
 #mosaic {
     display: grid;
-    grid-template-columns: repeat(15, 1fr);
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: repeat(15, 1fr); /* 15 columns for the grid */
+    grid-auto-rows: 1fr; /* Uniform row height */
+    gap: 0px; /* No gap between images */
     width: 100%;
-    height: 100%;
+    height: auto; /* Height adjusts to content */
 }
 
 .mosaic-image {
     width: 100%;
-    height: auto;
+    height: 100%; /* Fill the grid cell */
     object-fit: cover;
     transition: transform 0.3s ease;
     cursor: pointer;
@@ -153,22 +152,14 @@
         }
         }
         @media (max-width: 768px) {
-            #mosaic-container {
-            height: 66.66vw; /* Adjust height for smaller screens */
-    }
-
             #mosaic {
-            grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+            grid-template-columns: repeat(10, 1fr); /* Adjust the number of columns for medium screens */
     }
 }
 
         @media (max-width: 480px) {
-            #mosaic-container {
-            height: 100vw; /* Square ratio on very small screens */
-    }
-
             #mosaic {
-            grid-template-columns: repeat(auto-fill, minmax(30px, 1fr));
+            grid-template-columns: repeat(5, 1fr); /* Adjust the number of columns for small screens */
     }
 }
     </style>
