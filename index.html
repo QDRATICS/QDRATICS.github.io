@@ -41,9 +41,30 @@
         }
     
         #banner-image {
-            max-width: 875px;
+            max-width: 1000px;
             height: auto; /* Maintain aspect ratio */
+            margin-bottom: 20px;
         }
+
+        .mint-button {
+            display: inline-block;
+            background-color: #6dffb0; /* Green background */
+            color: black; /* White text */
+            margin-top: 20px;
+            text-align: center;
+            padding: 15px 32px; /* Top/bottom and left/right padding */
+            text-decoration: none; /* No underline */
+            font-size: 16px; /* Button text size */
+            margin: 20px 0; /* Margin for spacing */
+            cursor: pointer; /* Cursor changes on hover */
+            border: none; /* No border */
+            border-radius: 4px; /* Rounded corners */
+            transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+        .mint-button:hover {
+            background-color: #5bd092; /* Slightly darker green on hover */
+}
     
         .command-box {
             background-color: #202020;
@@ -72,13 +93,16 @@
     
         .gallery {
             margin-top: 20px; /* Space above the gallery */
+            margin-bottom: 20px;
             text-align: center;
+            flex: 0;
         }
     
         .gallery img {
             max-width: 128px;
             max-height: 128px;
             margin-top: 20px;
+            margin-bottom: 20px;
             cursor: pointer; /* Custom cursor for gallery images */
             display: none; /* Hide images initially */
         }
@@ -86,14 +110,19 @@
         .active-image {
             display: inline-block; /* Show the active image */
         }
-        .social-links {
-    position: static;
-    right: 20px;
-    margin-top: 20px;
+
+        .content-container {
+            display: flex;
     justify-content: center;
-    bottom: 20px;
-    display: flex;
-    gap: 10px; /* Space between icons */
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+        .social-link-left, .social-link-right {
+    flex: 0.05; /* Allows the social links to take equal space on both sides */
+    text-align: center; /* Center the social link within the div */
+    margin: 0 10px;
 }
 
 .social-links a {
@@ -167,7 +196,9 @@
 <body>
     <header>
         <img src="QUADRATICS Banner3.png" alt="Quadratics Banner" id="banner-image">
+        
     </header>
+    <a href="https://inspip.com/open-art/quadratics" class="mint-button">MINT HERE</a> <!-- Add your link here -->
 
     <main>
         
@@ -201,10 +232,16 @@ The Vision: Artistic simplicity meets Bitcoin innovation."></p>
             Pixel Power: Every bit is a building block."></p>
         </div>
 
-        <div class="gallery">
-            <img src="0600.png" alt="Image1" class="active-image"> 
+        <div class="content-container">
+            <div class="social-link-left">
+                <a href="https://discord.gg/dkzUm9jC7n" target="_blank">
+                    <img src="discord32.png" alt="Discord">
+                </a>
+            </div>
+            <div class="gallery">
+            <img src="0603.png" alt="Image1" class="active-image"> 
             <img src="0602.png" alt="Image2" style="display: none;">
-            <img src="0603.png" alt="Image3" style="display: none;">
+            <img src="0600.png" alt="Image3" style="display: none;">
             <img src="0604.png" alt="Image4" style="display: none;">
             <img src="0605.png" alt="Image5" style="display: none;">
             <img src="0606.png" alt="Image6" style="display: none;">
@@ -213,17 +250,16 @@ The Vision: Artistic simplicity meets Bitcoin innovation."></p>
             <img src="0609.png" alt="Image9" style="display: none;">
             <img src="0610.png" alt="Image10" style="display: none;">
             <img src="0611.png" alt="Image11" style="display: none;">
-            <img src="0615.png" alt="Image12" style="display: none;"> 
+            <img src="0615.png" alt="Image12" style="display: none;">
+            </div>
+            <div class="social-link-right">
+                <a href="https://twitter.com/qdratics" target="_blank">
+                    <img src="x32.png" alt="Twitter">
+                </a>
+            </div>
         </div>
 
-        <div class="social-links">
-            <a href="https://discord.gg/dkzUm9jC7n" target="_blank">
-                <img src="discord32.png" alt="Discord" style="width: 32px; height: 32px;">
-            </a>
-            <a href="https://twitter.com/qdratics" target="_blank">
-                <img src="x32.png" alt="Twitter" style="width: 32px; height: 32px;">
-            </a>
-        </div>
+        <a href="https://inspip.com/open-art/quadratics" class="mint-button">MINT HERE</a> <!-- Add your link here -->
 
 <div id="mosaic-container">
     <div id="mosaic">
