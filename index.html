@@ -150,6 +150,7 @@
     align-items: center;
     max-width: 90vw; /* Max width relative to viewport width */
     margin: auto; /* Center the container */
+    margin-top: 80px;
     overflow: hidden;
 }
 
@@ -168,6 +169,69 @@
     object-fit: cover;
     transition: transform 0.3s ease;
     cursor: pointer;
+}
+
+#gameArea {
+    width: 640px;
+    height: 640px;
+    border: 4px solid white;
+    position: relative;
+    margin: auto;
+    background-color: #202020;
+    margin-top: 80px;
+    z-index: 1;
+}
+
+#specialImageContainer {
+    display: none; /* Initially hidden */
+    position: absolute; /* Centering within gameArea */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1; /* Ensuring it's above other elements */
+}
+
+#specialImage {
+    width: 100% /* your desired width */;
+    height: auto; /* maintain aspect ratio */
+    /* Additional styling if needed */
+}
+
+#score, #lives {
+    position: absolute;
+    top: 10px;
+    color: black;
+    font-family: 'Orbitron';
+    z-index: 2;
+    background-color: #5bd092;
+}
+
+#score {
+    left: 10px;
+}
+
+#lives {
+    right: 10px;
+}
+
+.square, .obstacle, .collectible {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    z-index: 2;
+    transition: top 0.1s linear;
+}
+
+.square {
+    background-image: url('square32.png');
+}
+
+.obstacle {
+    background-image: url('eth32.png');
+}
+
+.collectible {
+    background-image: url('Bitcoin32.png');
 }
 
     
@@ -191,6 +255,16 @@
             grid-template-columns: repeat(5, 1fr); /* Adjust the number of columns for small screens */
     }
 }
+        @media (max-width: 768px) {
+            #gameArea {
+            width: 100%;
+            height: 400px;
+    }
+            .square, .obstacle, .collectible {
+            width: 24px;
+            height: 24px;
+    }
+} 
     </style>
 </head>
 <body>
@@ -378,5 +452,15 @@ The Vision: Artistic simplicity meets Bitcoin innovation."></p>
     });
 });
     </script>
+    <div id="gameArea">
+        <div id="score">Score: 0 BTC</div>
+        <div id="lives">Lives: 3</div>
+    
+        <div id="specialImageContainer">
+            <img id="specialImage" src="angry-pepe-pepe-the-frog.gif" alt="Special Image"/>
+        </div>
+    </div>
+    
+    <script src="minigamesni.js"></script>
 </body>
 </html>
